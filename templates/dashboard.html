@@ -1,0 +1,7 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head><body>
+<div class="card narrow"><h1>Dashboard</h1>
+<h3>Total URLs Checked: {{ total }}</h3><h3 class="phish">Phishing URLs: {{ phish }}</h3>
+<h3 class="legit">Legitimate URLs: {{ legit }}</h3>
+{% if chart %}<img src="data:image/png;base64,{{ chart }}" alt="Pie chart" style="max-width:100%">{% endif %}
+<a href="{{ url_for('home') }}">Back Home</a></div></body></html>

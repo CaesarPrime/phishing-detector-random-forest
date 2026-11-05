@@ -1,0 +1,11 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Detection Result</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head><body>
+<div class="card narrow"><h1>Detection Result</h1>
+<p><b>URL:</b> {{ r.url }}</p>
+<h2 class="{{ 'phish' if r.result.startswith('Phishing') else 'legit' }}">{{ r.result }}</h2>
+<div class="box"><h3 style="text-align:center">Detection Breakdown</h3>
+<p><b>Rule-Based Result:</b> {{ r.rule_result }}</p>
+<p><b>AI Model Result:</b> {{ r.model_result }} ({{ r.confidence }}% phishing probability)</p>
+<p><b>Rule Suspicion Score:</b> {{ r.score }}</p>
+{% if r.reasons %}<p><b>Rules triggered:</b></p><ul>{% for x in r.reasons %}<li>{{ x }}</li>{% endfor %}</ul>{% endif %}
+</div><a href="{{ url_for('home') }}">Check Another URL</a></div></body></html>

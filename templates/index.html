@@ -1,0 +1,9 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Phishing URL Detector</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head><body>
+<div class="card narrow"><h1>Phishing URL Detector</h1>
+<form method="post" action="{{ url_for('check') }}">
+<input type="text" name="url" placeholder="Enter a URL, e.g. https://example.com" value="{{ url or '' }}" required>
+<button type="submit">Check URL</button></form>
+{% if error %}<p class="error">{{ error }}</p>{% endif %}
+<a href="{{ url_for('history') }}">View Detection History</a>
+<a href="{{ url_for('dashboard') }}">View Dashboard</a></div></body></html>
